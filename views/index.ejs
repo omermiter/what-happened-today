@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What happend today</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+    <div class="loader">
+    </div>
+    <div class="container">
+        <p class="signature">Made by Omer Mitran</p>
+    <div class="description">
+        <h1 class="title"> What happend on the date?</h1>
+        <p class="web-desc">Enter a month between 1 - 12 and a day between 1 - 31 and get a list of historic events that happend on this date</p>
+    
+    <div class="form-container">
+    <form method="POST" action="/" class="date-form">
+        <label>Month</label>
+        <input type="text" name="month">
+        <label>day</label>
+        <input type="text" name="day">
+        <br>
+        <input type="submit" value="Submit" class="submit-btn">
+    </form>
+    </div>
+    </div>
+    
+    <% if(locals.events) { %>
+        <div class="total-events">
+            <p>Events for: <%= date %></p>
+        <% for(var i = 0; i < events.length; i++) { %>
+            <div class="event">
+                <p>year: <%= events[i]["year"]  %></p>
+                <p>description: <%= events[i]["description"]  %></p>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+
+
+</body>
+</html>
